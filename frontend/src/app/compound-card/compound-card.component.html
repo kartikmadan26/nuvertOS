@@ -1,0 +1,13 @@
+<div class="card-container">
+  <div class="card">
+    <img
+      *ngIf="compound?.strImageSource"
+      [src]="compound.strImageSource"
+      alt="Compound Image"
+    />
+    <div>
+      <h3 class="card-title">{{ compound.CompoundName }}</h3>
+      <button (click)="viewDetails()">View Details</button>
+    </div>
+  </div>
+</div>

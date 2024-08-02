@@ -1,0 +1,44 @@
+<app-header (navigateToNewCompound)="navigateToNewCompound()"></app-header>
+
+<div class="card-wrapper">
+  <div
+    class="card-list"
+    *ngFor="
+      let data of compounds
+        | slice : currentPage * cardsPerPage : (currentPage + 1) * cardsPerPage
+    "
+  >
+    <app-compound-card
+      (detailClick)="navigateToDetail(data.id)"
+      [compound]="data"
+    ></app-compound-card>
+  </div>
+</div>
+
+<div class="pagination">
+  <div>
+    <button [disabled]="currentPage === 0" (click)="currentPage = 0">
+      First
+    </button>
+    <button
+      [disabled]="currentPage === 0"
+      (click)="currentPage = currentPage - 1"
+    >
+      Previous
+    </button>
+  </div>
+  <div class="nextButtons">
+    <button
+      [disabled]="currentPage === totalPages"
+      (click)="currentPage = currentPage + 1"
+    >
+      Next
+    </button>
+    <button
+      [disabled]="currentPage === totalPages"
+      (click)="currentPage = totalPages"
+    >
+      Last
+    </button>
+  </div>
+</div>

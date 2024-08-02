@@ -1,0 +1,51 @@
+<h1>Add a new compound</h1>
+<form [formGroup]="compoundForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="CompoundName">Compound Name:</label>
+    <input id="CompoundName" formControlName="CompoundName" />
+    <div
+      *ngIf="
+        compoundForm.get('CompoundName').invalid &&
+        compoundForm.get('CompoundName').touched
+      "
+    >
+      Compound Name is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="strImageSource">Compound Image URL:</label>
+    <input id="strImageSource" formControlName="strImageSource" />
+    <div
+      *ngIf="
+        compoundForm.get('strImageSource').invalid &&
+        compoundForm.get('strImageSource').touched
+      "
+    >
+      A valid URL is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="CompoundDescription">Compound Description:</label>
+    <textarea
+      id="CompoundDescription"
+      formControlName="CompoundDescription"
+    ></textarea>
+    <div
+      *ngIf="
+        compoundForm.get('CompoundDescription').invalid &&
+        compoundForm.get('CompoundDescription').touched
+      "
+    >
+      Compound Description is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="strImageAttribution">Image Attribution (Optional):</label>
+    <input id="strImageAttribution" formControlName="strImageAttribution" />
+  </div>
+
+  <button type="submit" [disabled]="compoundForm.invalid">Submit</button>
+</form>

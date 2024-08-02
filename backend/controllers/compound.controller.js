@@ -57,7 +57,7 @@ const getCompoundUsingId = async (req, res) => {
             .status(200)
             .json(compound)
     }
-    catch {
+    catch (err) {
         console.error(err);
         return res
             .status(500)
@@ -72,7 +72,7 @@ const createCompound = async (req, res) => {
             .status(200)
             .json(compound)
     }
-    catch {
+    catch (err) {
         console.error(err);
         return res
             .status(500)
@@ -91,7 +91,7 @@ const updateCompound = async (req, res) => {
             .status(200)
             .json(updatedCompound)
     }
-    catch {
+    catch (err) {
         console.error(err);
         return res
             .status(500)
@@ -110,7 +110,7 @@ const deleteCompound = async (req, res) => {
             .status(200)
             .json(`compound deleted`)
     }
-    catch {
+    catch (err) {
         console.error(err);
         return res
             .status(500)

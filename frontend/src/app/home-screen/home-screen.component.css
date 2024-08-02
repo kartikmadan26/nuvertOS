@@ -1,0 +1,53 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/* Header */
+app-header {
+  display: block;
+}
+
+/* Card List */
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 30px;
+  overflow-y: auto;
+  padding-bottom: 60px; /* Space for pagination buttons */
+  flex-grow: 1;
+  gap: 10px;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 100%;
+  justify-content: center;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.pagination button {
+  color: #495057;
+  cursor: pointer;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
