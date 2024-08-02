@@ -8,8 +8,10 @@ const db = require('./models/index')
 
 app.use(express.json())
 
+// middleware
 app.use(cors());
 
+// base url
 app.use('/timestream', router);
 
 //Database Connection
@@ -24,6 +26,7 @@ const dbConnect = () => {
     }
 }
 
+// server listening for API calls on port 4000
 app.listen(4000, () => {
     dbConnect();
     console.log("Connected to Server")

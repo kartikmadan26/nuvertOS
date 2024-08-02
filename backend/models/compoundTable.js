@@ -1,4 +1,4 @@
-
+// we define the table structure in this file
 module.exports = (sequelize, DataTypes) => {
     const CompoundTable = sequelize.define("CompoundTable", {
         id: {

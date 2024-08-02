@@ -10,6 +10,7 @@ const {
 
 const router = express.Router();
 
+// routes for different api calls
 router.post('/populateCompoundTable', populateCompoundTable);
 router.get('/getAllCompounds', getAllCompounds);
 router.get('/getCompoundUsingId/:id', getCompoundUsingId);

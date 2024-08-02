@@ -4,6 +4,7 @@ const csv = require('csvtojson')
 
 const compoundData = db.CompoundTable;
 
+// populate the compound table with data from csv 
 const populateCompoundTable = async (req, res) => {
     try {
         let compounds = []
@@ -31,6 +32,7 @@ const populateCompoundTable = async (req, res) => {
     }
 }
 
+//Create operation (get all compound present in db)
 const getAllCompounds = async (req, res) => {
     try {
         const compounds = await compoundData.findAll()
@@ -46,6 +48,7 @@ const getAllCompounds = async (req, res) => {
     }
 }
 
+//Create operation (get compound by id)
 const getCompoundUsingId = async (req, res) => {
     try {
         const compound = await compoundData.findOne({
@@ -65,6 +68,7 @@ const getCompoundUsingId = async (req, res) => {
     }
 }
 
+// Create operation (add new chemical compound)
 const createCompound = async (req, res) => {
     try {
         const compound = await compoundData.create(req.body)
@@ -80,6 +84,7 @@ const createCompound = async (req, res) => {
     }
 }
 
+// Update operation (Update compound details)
 const updateCompound = async (req, res) => {
     try {
         const updatedCompound = await compoundData.update(req.body, {
@@ -99,6 +104,7 @@ const updateCompound = async (req, res) => {
     }
 }
 
+// Delete operation (delete compound using id)
 const deleteCompound = async (req, res) => {
     try {
         await compoundData.destroy({
