@@ -17,12 +17,13 @@ import { NewCompoundFormComponent } from '../new-compound-form/new-compound-form
 })
 export class HomeScreenComponent implements OnInit{
   compounds: CompoundStruct[]=[]
-
+  // for pagination
   cardsPerPage: number = cardsPerPage;
   currentPage: number = 0;
   totalPages: number = 0; 
-  constructor(private http: HttpClient,private router: Router) {}
 
+  constructor(private http: HttpClient,private router: Router) {}
+  // get all compounds api called on screen load
   ngOnInit(): void {
     this.http
       .get<CompoundStruct[]>(`${baseUrl}getAllCompounds`)
@@ -31,11 +32,11 @@ export class HomeScreenComponent implements OnInit{
         this.totalPages = Math.ceil(this.compounds.length / this.cardsPerPage) - 1;  //pagination
       });
   }
-
+// navigate to compound details page with specific id
   navigateToDetail(id: number): void {
     this.router.navigate(['detail', id]);
   }
-
+// navigate to add new compound screen
   navigateToNewCompound():void{
     this.router.navigate(['addNewCompound'])
   }

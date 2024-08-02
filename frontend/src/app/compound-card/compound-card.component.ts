@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './compound-card.component.css'
 })
 export class CompoundCardComponent {
+
+  // input detials required 
   @Input() compound: CompoundStruct = {
     id: 0,
     CompoundName: '',
@@ -21,6 +23,7 @@ export class CompoundCardComponent {
 
   @Output() detailClick = new EventEmitter<number>();
 
+  // method to navigate to compound details screen
   viewDetails() {
     this.detailClick.emit(this.compound.id);
   }

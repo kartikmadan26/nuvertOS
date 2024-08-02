@@ -3,7 +3,6 @@ body, html {
   margin: 0;
 }
 
-/* Header */
 app-header {
   display: block;
 }
@@ -15,7 +14,7 @@ app-header {
   justify-content: center;
   margin: 10px 30px;
   overflow-y: auto;
-  padding-bottom: 60px; /* Space for pagination buttons */
+  padding-bottom: 60px; 
   flex-grow: 1;
   gap: 10px;
 }

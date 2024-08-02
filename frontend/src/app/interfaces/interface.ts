@@ -1,3 +1,4 @@
+// interface for the compound details table
 export interface CompoundStruct{
     id:number,
     CompoundName:string,
@@ -8,4 +9,4 @@ export interface CompoundStruct{
 }
 
 export const baseUrl = 'http://localhost:4000/timestream/';
-export const cardsPerPage = 12;
+export const cardsPerPage = 12; //number of cards on each page

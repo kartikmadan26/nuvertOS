@@ -23,7 +23,7 @@ export class CompoundDetailsComponent implements OnInit {
   };
   dataNotFound: boolean = false;
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
-
+  // method to get compound details on initializaton by specific id recieved as input
   ngOnInit() {
     this.route.params.subscribe((params) => {   //routing to the detail page
       this.chem_id = params['id'];
@@ -40,9 +40,12 @@ export class CompoundDetailsComponent implements OnInit {
       });
   }
 
+  // method to open strImageAttribution external link
   onViewMore() {
       window.open(this.data.strImageAttribution, '_blank');
   }
+
+  // method to call update compound details api 
   onUpdate() {
     this.data.CompoundName=prompt('Enter the name of the chemical')||this.data.CompoundName
     this.data.CompoundDescription=prompt('Enter the description of the chemical')||this.data.CompoundDescription
@@ -50,10 +53,9 @@ export class CompoundDetailsComponent implements OnInit {
     this.http
       .put(`${baseUrl}updateCompound/${this.chem_id}`, this.data)
       .subscribe((data) => {
-        // window.location.href = '/';
       });
   }
-
+  // method to call delete compound api 
   onDelete() {
     this.http
       .delete(`${baseUrl}deleteCompound/${this.chem_id}`)

@@ -17,6 +17,7 @@ export class NewCompoundFormComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
   compoundForm!: FormGroup;
 
+  // here we define the form inputs and validations on it
   ngOnInit() {
     this.compoundForm = new FormGroup({
       CompoundName: new FormControl('', Validators.required),
@@ -26,16 +27,15 @@ export class NewCompoundFormComponent implements OnInit {
     });
   }
 
+  // this function calls the create compound api on press of submit button
   onSubmit() {
     if (this.compoundForm.valid) {
       console.log(this.compoundForm.value);
-      // Here you can send the form data to the backend or perform any action
       const formData = this.compoundForm.value;
       this.http.post(`${baseUrl}createCompound`, formData)
       .subscribe({
         next: (response) => {
           console.log('Compound created successfully:', response);
-          // Optionally, navigate away or clear the form here
           window.location.href = '/';
         }
       });
